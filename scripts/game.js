@@ -475,6 +475,8 @@ function drawingImg() {
     ctx.fillStyle = bgcolor;
     ctx.fillRect(0, 0, cvs.width, cvs.height);
     
+
+    ctx.drawImage(grass, 2 * box, 4 * box, 24 * box, 23 * box);
     for (var j = 0; j < maze.length; j++) {
 
         ctx.fillStyle = "rgb(97, 75, 45)";
@@ -482,8 +484,6 @@ function drawingImg() {
         ctx.strokeStyle = "black";
         ctx.strokeRect(maze[j].x, maze[j].y, box, box);
     }
-
-    ctx.drawImage(cvsbg, 2 * box, 4 * box, 24 * box, 23 * box);
 
     if(autonomousState==1){
     searchthepath(1, snake[0], food, snake);
