@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="Ravi Sri Ram Chowdary">
+
+    <link rel="stylesheet" type="text/CSS" href="stylesheets/game.css">
+    <script src="https://kit.fontawesome.com/843e13ba28.js" crossorigin="anonymous"></script>
+
+    <title>Classic Mode</title>
+
+</head>
+<body>
+    <div class="loading-overlay">
+
+    </div>
+    <div class="header block tacenter fs3">
+        Classic Mode<br />
+        <span class="spread fs15">
+            Snake Game
+        </span>
+    </div>
+        <div class="max-width mar-cent flex" id="content">
+        <div id="canvasHolder" class="ibl">
+            <div id="start_overlay">
+
+            </div>
+            <canvas id="gamecanvas">
+
+            </canvas>
+        </div>
+        <div id="controls" class="ibl relative tacenter">
+            <div id="speedchange" class="flex fs15">
+                <div id="speedup" onclick="incSpeed();"  class="ex-controls speed-controls">
+                    Speed Up
+                </div>
+                <div id="speeddown" onclick="decSpeed();"  class="ex-controls speed-controls">
+                    Speed Down
+                </div>
+            </div>
+            <div id="joypad" class="tacenter">
+                <div id="ref" class="ibl relative">
+                    <div class="keys" id="keyup" onclick="if(directionCode != 'DOWN') directionCode = 'UP'" ></div>
+                    <div class="keys" id="keyright" onclick="if(directionCode != 'LEFT') directionCode = 'RIGHT'" ></div>
+                    <div class="keys" id="keydown" onclick="if(directionCode != 'UP') directionCode = 'DOWN'" ></div>
+                    <div class="keys" id="keyleft" onclick="if(directionCode != 'RIGHT') directionCode = 'LEFT'" ></div>
+                </div>
+            </div>
+            <div id="pause" onclick="gameStatusChange();"  class="ex-controls ibl tacenter fs15">Pause</div><br/>
+            <div id="autonomous" onclick="autonomous();" class="ex-controls ibl tacenter fs15">Autoplay</div>
+        </div>
+    </div>
+    <script>
+        var isClassic = true;
+        var isCampaign = false;
+    </script>
+    <script src="scripts/game.js">
+    </script>
+</body>
+</html>

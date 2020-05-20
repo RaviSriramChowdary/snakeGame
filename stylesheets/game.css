@@ -1,0 +1,174 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: inherit;
+}
+
+html{
+    font-size: 16px;
+    line-height: 10px;
+}
+
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background: linear-gradient(to right bottom, rgba(119, 160, 119, 0.507), rgba(255, 255, 0, 0.52)), url(../img/grass.png);
+    background-size: 100vw 100vh,120vw 120vh;
+    background-repeat: no-repeat, no-repeat;
+}
+
+.flex{
+    display: flex;
+}
+
+.block{
+    display: block;
+}
+
+.ibl{
+   display: inline-block; 
+}
+
+.tacenter{
+    text-align: center;
+}
+
+.fs5{
+    font-size: 5rem;
+}
+.fs4{
+    font-size: 4rem;
+}
+.fs3{
+    font-size: 3rem;
+}
+.fs25{
+    font-size: 2.5rem;
+}
+.fs2{
+    font-size: 2rem;
+}
+.fs18{
+    font-size: 1.8rem;
+}
+.fs15{
+    font-size: 1.5rem;
+}
+.fs1{
+    font-size: 1rem;
+}
+
+.mar-cent{
+    margin: 0 auto;
+}
+
+.relative{
+    position: relative;
+}
+
+.absolute{
+    position: absolute;
+}
+
+.spread{
+    letter-spacing: 8px;
+    line-height: 2rem;
+}
+
+.header{
+    padding: 10px 0;
+    line-height: 3rem;
+    background-color: rgba(255, 255, 255, 0.705);
+    margin: 10px 10px 0;
+    border-radius: 20px;
+}
+
+.max-width{
+    max-width: 1360px;
+    padding: 20px 40px;
+}
+
+#content{
+    margin-top: 50px;
+}
+
+#canvasHolder{
+    width: 50%;
+    max-width: 564px;
+}
+
+#controls{
+    width: 50%;
+}
+
+#joypad{
+    margin-top: 140px;
+    height: 50px;
+}
+
+#ref{
+    height: 100%;
+    width: 50px;
+}
+
+#joypad .keys{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    background-color: green;
+    cursor: pointer;
+}
+
+#keyup,#keydown{
+    left: 0;
+}
+#keyleft,#keyright{
+    top: 0;
+}
+#keyup{
+    top: -60px;
+    clip-path: polygon(50% 0%, 120% 100%, -20% 100%);
+}
+#keydown{
+    bottom: -60px;
+    clip-path: polygon(50% 100%, 120% 0%, -20% 0%);
+}
+#keyright{
+    right: -60px;
+    clip-path: polygon(100% 50%, 0% 120%, 0% -20%);
+}
+#keyleft{
+    left: -60px;
+    clip-path: polygon(0% 50%, 100% 120%, 100% -20%);
+}
+
+#pause{
+    margin-top: 100px;
+    width: 200px;
+    cursor: pointer;
+}
+
+#autonomous{
+    margin-top: 20px;
+    width: 200px;
+    cursor: pointer;
+}
+
+#speedchange{
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin-top: 60px;
+    cursor: pointer;
+}
+
+.speed-controls{
+    width: 180px;
+    cursor: pointer;
+}
+
+.ex-controls{
+    border: 2px solid green;
+    line-height: 2.5rem;
+    cursor: pointer;
+}
+

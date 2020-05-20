@@ -1,0 +1,41 @@
+<! DOCTYPE html>
+
+<html>
+    <head>
+        <title>Welcome to the Snake Game</title>
+        <meta name="viewport" content="width=device-width, inital-scale=1.0">
+        <link rel="stylesheet" type="text/CSS" href="stylesheets/style.css">
+        <script src="https://kit.fontawesome.com/843e13ba28.js" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+        <div id="content">
+            <div id="canvasHolder">
+                <canvas id="demoCanvas"></canvas>
+            </div>
+            <div id="placeholder">
+                <div id="menu">
+                    <h1 class="text-center">
+                        Snake game
+                    </h1>
+                    <div class="selector">
+                        <a href="#" id="playgame" onclick="revealmode();">Play Game</a><br/>
+                        <a href="#">How to Play?</a><br />
+                        <a href="#">New Features</a>
+                    </div>
+                </div><div id="mode">
+                    <div class="backiconholder"><a href="index.html"><i class="far fa-arrow-alt-circle-left"></i></a></div>
+                    <h2 class="text-center">Select Mode:
+                    </h2>
+                    <div class="selector">
+                        <a href="classic.html">Classic</a><br />
+                        <a href="modern.html">Modern</a><br />
+                        <a href="campaign.html">Campaign</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="scripts/home.js"></script>
+    </body>
+</html>
