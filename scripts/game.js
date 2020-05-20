@@ -31,7 +31,7 @@ headleftimg.src = "img/head.png";
 headdownimg.src = "img/headdown.png";
 headrightimg.src = "img/headright.png";
 snakeBody.src = "img/body.png";
-grass.src = "img/Capture.jpg";
+grass.src = "img/Capture.png";
 cvsbg.src = "img/Capture.jpg";
 
 eaten.src = "audio/move.mp3";
@@ -476,7 +476,7 @@ function drawingImg() {
     ctx.fillRect(0, 0, cvs.width, cvs.height);
     
 
-    ctx.drawImage(grass, 2 * box, 4 * box, 24 * box, 23 * box);
+    ctx.drawImage(grass, 2*box, 4*box, 24*box, 23*box);
     for (var j = 0; j < maze.length; j++) {
 
         ctx.fillStyle = "rgb(97, 75, 45)";
