@@ -16,10 +16,11 @@ body{
     color: bisque;
     background: linear-gradient(to right bottom , rgba(0, 128, 0, 0.575) ,rgba(255, 255, 0, 0.644)) , url(../img/grass.png);
     background-size: 100vw 100vh  ,cover;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
-.text-center{
+@media screen and (min-width : 1060px){
+    .text-center{
     text-align : center;
 }
 
@@ -28,6 +29,7 @@ body{
     max-width: 1260px;
     height: 100vh;
     margin: 0 auto;
+    padding: 0 40px;
 }
 
 #canvasHolder{
@@ -116,4 +118,108 @@ body{
 
 #mode .backiconholder:hover{
     transform: scale(1.1);
+}}
+
+@media screen and (max-width:1060px){
+
+    #content{
+        display: block;
+        max-width: 1260px;
+        height: 100vh;
+        margin: 0 auto;
+    }
+
+    #canvasHolder{
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+        margin-top: 180px;
+        float: none;
+        border: 2px inset black;
+        opacity: 0.9;
+    }
+
+    #placeholder{
+        display: block;
+        height: 500px;
+        color: bisque;
+        position: relative;
+        opacity: 0.9;
+    }
+
+    #menu{
+        display: block;
+        height: 564px;
+        width: 100%;
+        color: bisque;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: -500;
+    }
+
+    #mode{
+        height: 564px;
+        color: bisque;
+        display: none;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: -500;
+    }
+
+    #menu h1{
+        line-height: 12rem;
+        font-size: 5rem;
+        text-align: center;
+        text-shadow: 2px 2px 4px black;
+    }
+    #mode h2{
+        text-align: center;
+        width: 100%;
+        line-height: 12rem;
+        font-size: 4rem;
+        text-shadow: 2px 2px 4px black;
+    }
+
+    .selector{
+        display: block;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .selector a{
+        display: inline-block;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 30px;
+        font-size: 2.5rem;
+        line-height: 4rem;
+        width: 250px;
+        border-radius: 10px;
+        background: url(../img/wood.png);
+        background-size: 100% 100%;
+        color: beige;
+        transition: 0.4s all;
+    }
+
+    .selector a:hover{
+        transform: scale(1.05);
+    }
+
+    #mode .backiconholder{
+        font-size: 40px;
+        position: relative;
+        left: 100px;
+        cursor: pointer;
+        transform-origin: center;
+        width: fit-content;
+        color: beige;
+        background-color: rgba(128, 27, 27, 0.486);
+        border-radius: 50%;
+    }
+
+    #mode .backiconholder:hover{
+        transform: scale(1.1);
+    }
 }

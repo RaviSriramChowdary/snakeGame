@@ -15,6 +15,7 @@ body{
     background: linear-gradient(to right bottom, rgba(119, 160, 119, 0.507), rgba(255, 255, 0, 0.52)), url(../img/grass.png);
     background-size: 100vw 100vh,120vw 120vh;
     background-repeat: no-repeat, no-repeat;
+    overflow: hidden;
 }
 
 .flex{
@@ -69,106 +70,436 @@ body{
 .absolute{
     position: absolute;
 }
+@media screen and (min-width: 0px){
+    .spread{
+        letter-spacing: 8px;
+        line-height: 2rem;
+    }
 
-.spread{
-    letter-spacing: 8px;
-    line-height: 2rem;
+    .header{
+        padding: 10px 0;
+        line-height: 3rem;
+        background-color: rgba(255, 255, 255, 0.705);
+        margin: 10px 10px 0;
+        border-radius: 20px;
+    }
+
+    .max-width{
+        max-width: 1360px;
+        padding: 20px 0;
+    }
+
+    #content{
+        margin-top: 50px;
+    }
+
+    #canvasHolder{
+        width: 100%;
+    }
+
+    #gamecanvas{
+        display: block;
+        margin: 0 auto;
+    }
+
+    #controls{
+        width: 50%;
+        color: beige;
+    }
+
+    #joypad{
+        margin-top: 140px;
+        height: 50px;
+    }
+
+    #ref{
+        height: 100%;
+        width: 50px;
+    }
+
+    #joypad .keys{
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        background-color: rgb(22, 104, 93);
+        cursor: pointer;
+    }
+
+    #keyup,#keydown{
+        left: 0;
+    }
+    #keyleft,#keyright{
+        top: 0;
+    }
+    #keyup{
+        top: -60px;
+        clip-path: polygon(50% 0%, 120% 100%, -20% 100%);
+    }
+    #keydown{
+        bottom: -60px;
+        clip-path: polygon(50% 100%, 120% 0%, -20% 0%);
+    }
+    #keyright{
+        right: -60px;
+        clip-path: polygon(100% 50%, 0% 120%, 0% -20%);
+    }
+    #keyleft{
+        left: -60px;
+        clip-path: polygon(0% 50%, 100% 120%, 100% -20%);
+    }
+
+    #pause{
+        margin-top: 100px;
+        width: 200px;
+        cursor: pointer;
+    }
+
+    #autonomous{
+        margin-top: 20px;
+        width: 200px;
+        cursor: pointer;
+    }
+
+    #speedchange{
+        justify-content: space-evenly;
+        flex-direction: row;
+        margin-top: 60px;
+        cursor: pointer;
+    }
+
+    .speed-controls{
+        width: 180px;
+        cursor: pointer;
+    }
+
+    .ex-controls{
+        background-color: rgb(22, 104, 93);
+        line-height: 2.5rem;
+        cursor: pointer;
+    }
 }
 
-.header{
-    padding: 10px 0;
-    line-height: 3rem;
-    background-color: rgba(255, 255, 255, 0.705);
-    margin: 10px 10px 0;
-    border-radius: 20px;
+
+@media screen and (max-width: 564px){
+    html{
+        font-size: 14px;
+    }
+    .max-width{
+        max-width: 1360px;
+        padding: 0 0;
+    }
+
+    #content{
+        margin-top: 20px;
+    }
+
+    #canvasHolder{
+        width: 100%;
+    }
+
+    #gamecanvas{
+        display: block;
+        margin: 0 auto;
+    }
+
+    #controls{
+        width: 100%;
+    }
+
+    #joypad{
+        margin-top: 0px;
+        height: 50px;
+        float: right;
+        margin-right: 20%;
+    }
+
+    #ref{
+        height: 100%;
+        width: 50px;
+    }
+
+    #joypad .keys{
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        cursor: pointer;
+    }
+
+    #keyup,#keydown{
+        left: 0;
+    }
+    #keyleft,#keyright{
+        top: 0;
+    }
+    #keyup{
+        top: -60px;
+        clip-path: polygon(50% 0%, 120% 100%, -20% 100%);
+    }
+    #keydown{
+        bottom: -60px;
+        clip-path: polygon(50% 100%, 120% 0%, -20% 0%);
+    }
+    #keyright{
+        right: -60px;
+        clip-path: polygon(100% 50%, 0% 120%, 0% -20%);
+    }
+    #keyleft{
+        left: -60px;
+        clip-path: polygon(0% 50%, 100% 120%, 100% -20%);
+    }
+
+    #pause{
+        margin-top: 10px;
+        display: block;
+        width: 40%;
+        cursor: pointer;
+        margin-left: 50px;
+    }
+
+    #autonomous{
+        margin-top: 10px;
+        width: 40%;
+        display: block;
+        cursor: pointer;
+        margin-left: 50px;
+    }
+
+    #speedchange{
+        display: block;
+        margin-top: 10px;
+        width: 40%;
+        margin-left: 50px;
+        cursor: pointer;
+    }
+    #speedchange div{
+        display: inline-block;
+        margin-top: 10px;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .speed-controls{
+        width: 180px;
+        cursor: pointer;
+    }
+
+    .ex-controls{
+        line-height: 2.5rem;
+        cursor: pointer;
+        margin-right: 40px;
+    }
 }
 
-.max-width{
-    max-width: 1360px;
-    padding: 20px 40px;
+
+@media screen and (max-width: 900px) and (min-width:564px){
+    html{
+        font-size: 16px;
+    }
+    .max-width{
+        max-width: 1360px;
+        padding: 0 0;
+    }
+
+    #content{
+        margin-top: 20px;
+    }
+
+    #canvasHolder{
+        width: 100%;
+    }
+
+    #gamecanvas{
+        display: block;
+        margin: 0 auto;
+    }
+
+    #controls{
+        width: 100%;
+    }
+
+    #joypad{
+        margin-top: 0px;
+        height: 50px;
+        float: right;
+        margin-right: 20%;
+    }
+
+    #ref{
+        height: 100%;
+        width: 50px;
+    }
+
+    #joypad .keys{
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        cursor: pointer;
+    }
+
+    #keyup,#keydown{
+        left: 0;
+    }
+    #keyleft,#keyright{
+        top: 0;
+    }
+    #keyup{
+        top: -60px;
+        clip-path: polygon(50% 0%, 120% 100%, -20% 100%);
+    }
+    #keydown{
+        bottom: -60px;
+        clip-path: polygon(50% 100%, 120% 0%, -20% 0%);
+    }
+    #keyright{
+        right: -60px;
+        clip-path: polygon(100% 50%, 0% 120%, 0% -20%);
+    }
+    #keyleft{
+        left: -60px;
+        clip-path: polygon(0% 50%, 100% 120%, 100% -20%);
+    }
+
+    #pause{
+        margin-top: 20px;
+        display: block;
+        width: 40%;
+        cursor: pointer;
+        margin-left: 100px;
+    }
+
+    #autonomous{
+        margin-top: 10px;
+        width: 40%;
+        display: block;
+        cursor: pointer;
+        margin-left: 100px;
+    }
+
+    #speedchange{
+        display: block;
+        margin-top: 30px;
+        width: 40%;
+        margin-left: 100px;
+        cursor: pointer;
+    }
+    #speedchange div{
+        display: inline-block;
+        margin-top: 20px;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .speed-controls{
+        width: 180px;
+    }
+
+    .ex-controls{
+        margin-right: 40px;
+    }
 }
 
-#content{
-    margin-top: 50px;
-}
+@media screen and (min-width:900px) 
+{
+    .header{
+        padding: 10px 0;
+        line-height: 3rem;
+        background-color: rgba(255, 255, 255, 0.705);
+        margin: 10px 10px 0;
+        border-radius: 20px;
+    }
 
-#canvasHolder{
-    width: 50%;
-    max-width: 564px;
-}
+    .max-width{
+        display: flex;
+        justify-content: space-around;
+        max-width: 1360px;
+        margin: 0 auto;
+        padding: 20px 40px;
+    }
 
-#controls{
-    width: 50%;
-}
+    #content{
+        margin-top: 50px;
+    }
 
-#joypad{
-    margin-top: 140px;
-    height: 50px;
-}
+    #canvasHolder{
+        display: block;
+        width: 50%;
+        max-width: 564px;
+        float: left;
+    }
 
-#ref{
-    height: 100%;
-    width: 50px;
-}
+    #controls{
+        width: 40%;
+        display: block;
+    }
 
-#joypad .keys{
-    position: absolute;
-    height: 50px;
-    width: 50px;
-    background-color: green;
-    cursor: pointer;
-}
+    #joypad{
+        margin-top: 140px;
+        height: 50px;
+    }
 
-#keyup,#keydown{
-    left: 0;
-}
-#keyleft,#keyright{
-    top: 0;
-}
-#keyup{
-    top: -60px;
-    clip-path: polygon(50% 0%, 120% 100%, -20% 100%);
-}
-#keydown{
-    bottom: -60px;
-    clip-path: polygon(50% 100%, 120% 0%, -20% 0%);
-}
-#keyright{
-    right: -60px;
-    clip-path: polygon(100% 50%, 0% 120%, 0% -20%);
-}
-#keyleft{
-    left: -60px;
-    clip-path: polygon(0% 50%, 100% 120%, 100% -20%);
-}
+    #ref{
+        height: 100%;
+        width: 50px;
+    }
 
-#pause{
-    margin-top: 100px;
-    width: 200px;
-    cursor: pointer;
-}
+    #joypad .keys{
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        background-color: rgb(22, 104, 93);
+        cursor: pointer;
+    }
 
-#autonomous{
-    margin-top: 20px;
-    width: 200px;
-    cursor: pointer;
-}
+    #keyup,#keydown{
+        left: 0;
+    }
+    #keyleft,#keyright{
+        top: 0;
+    }
+    #keyup{
+        top: -60px;
+        clip-path: polygon(50% 0%, 120% 100%, -20% 100%);
+    }
+    #keydown{
+        bottom: -60px;
+        clip-path: polygon(50% 100%, 120% 0%, -20% 0%);
+    }
+    #keyright{
+        right: -60px;
+        clip-path: polygon(100% 50%, 0% 120%, 0% -20%);
+    }
+    #keyleft{
+        left: -60px;
+        clip-path: polygon(0% 50%, 100% 120%, 100% -20%);
+    }
 
-#speedchange{
-    justify-content: space-evenly;
-    flex-direction: row;
-    margin-top: 60px;
-    cursor: pointer;
-}
+    #pause{
+        margin-top: 100px;
+        width: 200px;
+        cursor: pointer;
+    }
 
-.speed-controls{
-    width: 180px;
-    cursor: pointer;
-}
+    #autonomous{
+        margin-top: 20px;
+        width: 200px;
+        cursor: pointer;
+    }
 
-.ex-controls{
-    border: 2px solid green;
-    line-height: 2.5rem;
-    cursor: pointer;
-}
+    #speedchange{
+        justify-content: space-evenly;
+        flex-direction: row;
+        margin-top: 60px;
+        cursor: pointer;
+    }
 
+    .speed-controls{
+        width: 180px;
+        cursor: pointer;
+    }
+
+    .ex-controls{
+        background-color: rgb(22, 104, 93);
+        line-height: 2.5rem;
+        cursor: pointer;
+    }   
+}

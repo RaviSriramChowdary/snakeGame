@@ -1,11 +1,31 @@
 const cvs = document.getElementById('gamecanvas');
+const ctx = cvs.getContext("2d");
+var box = cvs.width / 28;
+var snake = new Array();
+
+snake[0] = {
+    x: 13 * box,
+    y: 15 * box
+};
+
+let maze = new Array();
+var food = foodGenerator();
+var timeSpeed = 100;
+var game = setInterval(drawingImg, timeSpeed);
 
 cvs.width = 560;
-cvs.height = cvs.width;
-const ctx = cvs.getContext("2d");
 
-const box = cvs.width / 28;
-var timeSpeed = 100;
+var reqwidth = document.getElementById('content').offsetWidth;
+console.log(reqwidth);
+
+var x = window.matchMedia("(max-width: 564px)")
+myFunction() // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
+
+
+window.addEventListener('resize', myFunction);
+    
+
 
 
 var foodimg = new Image();
@@ -38,19 +58,9 @@ eaten.src = "audio/move.mp3";
 gameover.src = "audio/gameover.mp3";
 levelup.src = "audio/levelup.mp3";
 
-let snake = new Array();
-
-snake[0] = {
-    x: 13 * box,
-    y: 15 * box
-};
-
-let maze = new Array();
 
 var score = 0;
-var food = foodGenerator();
 var directionCode = "none";
-let game = setInterval(drawingImg, timeSpeed);
 
 var autonomousState = -1;
 var uptime = -2 * timeSpeed, downtime = -2 * timeSpeed, righttime = -2 * timeSpeed, lefttime = -2 * timeSpeed;
@@ -100,6 +110,34 @@ touchObject.addEventListener('touchend',
             directionCode = "UP";
     }
 );
+function myFunction() {
+    if (x.matches) { // If media query matches
+        ctx.clearRect(0, 0, 560, 560);
+        reqwidth = document.getElementById('content').offsetWidth;
+        cvs.width = reqwidth - reqwidth % 28;
+        cvs.height = cvs.width;
+        console.log(reqwidth + "and" + cvs.width);
+    } else {
+        ctx.clearRect(0, 0, 560, 560);
+        cvs.width = 560;
+        cvs.height = cvs.width;
+        reqwidth = document.getElementById('content').offsetWidth;
+        console.log(reqwidth + "and" + cvs.width);
+    }
+
+    for (let i = 0; i < snake.length; i++) {
+        snake[i].x = (snake[i].x / box) * (cvs.width / 28);
+        snake[i].y = (snake[i].y / box) * (cvs.width / 28);
+    }
+    for (let i = 0; i < maze.length; i++) {
+        maze[i].x = (maze[i].x / box) * (cvs.width / 28);
+        maze[i].y = (maze[i].y / box) * (cvs.width / 28);
+    }
+    food.x = (food.x / box) * (cvs.width / 28);
+    food.y = (food.y / box) * (cvs.width / 28);
+    box = cvs.width / 28;
+}
+
 
 function incSpeed() {    // The function that increase the Speed of the Snake
     gameStatusChange();
@@ -481,34 +519,35 @@ function drawingImg() {
     ctx.fillRect(2*box,4*box,24*box,23*box);
     for (var j = 0; j < maze.length; j++) {
 
-        ctx.fillStyle = "rgb(97, 75, 45)";
+        ctx.fillStyle = "rgb(150, 155, 150)";
         ctx.fillRect(maze[j].x, maze[j].y, box, box);
         ctx.strokeStyle = "black";
         ctx.strokeRect(maze[j].x, maze[j].y, box, box);
     }
 
-    if(autonomousState==1){
-    searchthepath(1, snake[0], food, snake);
-    if (path.length > 0) {
+    if (autonomousState == 1) {
+        searchthepath(1, snake[0], food, snake);
+        if (typeof path != undefined) {
+            if (path.length > 0) {
 
-        for (var i = 0; i < path.length; i++) {
-            del = i;
+                for (var i = 0; i < path.length; i++) {
+                    del = i;
 
-            if ((snake[0].x + box == path[del].x || snake[0].x + box == path[del].x + 24 * box) && snake[0].y == path[del].y) {
-                directionCode = "RIGHT";
-            }
-            else if ((snake[0].x - box == path[del].x || snake[0].x - box == path[del].x - 24 * box) && snake[0].y == path[del].y) {
-                directionCode = "LEFT";
-            }
-            if (snake[0].x == path[del].x && (snake[0].y - box == path[del].y || snake[0].y - box == path[del].y - 23 * box)) {
-                directionCode = "UP";
-            }
-            else if (snake[0].x == path[del].x && (snake[0].y + box == path[del].y || snake[0].y + box == snake[0].y + 23 * box)) {
-                directionCode = "DOWN";
+                    if ((snake[0].x + box == path[del].x || snake[0].x + box == path[del].x + 24 * box) && snake[0].y == path[del].y) {
+                        directionCode = "RIGHT";
+                    }
+                    else if ((snake[0].x - box == path[del].x || snake[0].x - box == path[del].x - 24 * box) && snake[0].y == path[del].y) {
+                        directionCode = "LEFT";
+                    }
+                    if (snake[0].x == path[del].x && (snake[0].y - box == path[del].y || snake[0].y - box == path[del].y - 23 * box)) {
+                        directionCode = "UP";
+                    }
+                    else if (snake[0].x == path[del].x && (snake[0].y + box == path[del].y || snake[0].y + box == snake[0].y + 23 * box)) {
+                        directionCode = "DOWN";
+                    }
+                }
             }
         }
-        }
-
     }
     
     for (let i = snake.length - 1; i >= 0; i--) {
@@ -625,7 +664,7 @@ function drawingImg() {
     }
 
     ctx.fillStyle = "white";
-    ctx.font = "30px Arial";
+    ctx.font = 1.8*box + "px " + "Arial";
     ctx.fillText("Score :" + score, 2 * box, 2.5* box);
 }
 
@@ -968,5 +1007,3 @@ function returnPath(current_node_for_path) {
     path.reverse();
 }
 
-function followpath() {
-}
