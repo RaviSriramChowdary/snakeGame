@@ -7,14 +7,17 @@
     <meta name="author" content="Ravi Sri Ram Chowdary">
 
     <link rel="stylesheet" type="text/CSS" href="stylesheets/game.css">
-    
-
+    <script src="https://kit.fontawesome.com/843e13ba28.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="img/head.png" type="img/icon">
     <title>Classic Mode</title>
 
 </head>
 <body>
     <div class="loading-overlay">
-
+        <div class="loading">Loading...</div>
+        <div class="statusbar">
+            <div class="percentage"></div>
+        </div>
     </div>
     <div class="header block tacenter fs3">
         Classic Mode<br />
@@ -24,8 +27,8 @@
     </div>
         <div class="max-width mar-cent block" id="content">
         <div id="canvasHolder" class="block">
-            <div id="start_overlay">
-
+            <div id="pause_overlay">
+                <div class="play"><i onclick="gameStatusChange();" class="fas fa-play"></i></div>
             </div>
             <canvas id="gamecanvas">
 

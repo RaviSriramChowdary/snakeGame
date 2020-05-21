@@ -136,8 +136,9 @@ function myFunction() {
     food.x = (food.x / box) * (cvs.width / 28);
     food.y = (food.y / box) * (cvs.width / 28);
     box = cvs.width / 28;
+    document.getElementById('pause_overlay').style.width = cvs.width + 'px';
+    document.getElementById('pause_overlay').style.height = document.getElementById('pause_overlay').style.width;
 }
-
 
 function incSpeed() {    // The function that increase the Speed of the Snake
     gameStatusChange();
@@ -257,10 +258,12 @@ function gameStatusChange() {
     if (game == -1) {
         game = setInterval(drawingImg, timeSpeed);
         document.getElementById("pause").innerHTML = "Pause";
+        document.getElementById('pause_overlay').style.display = "none";
     }
     else {
         clearInterval(game);
         document.getElementById("pause").innerHTML = "Resume";
+        document.getElementById('pause_overlay').style.display = "block";
         game = -1;
     }
 }
@@ -470,7 +473,6 @@ function reset(time_lapse) {
             x: (Math.floor((Math.random()) * 24 + 2)) * box,
             y: (Math.floor((Math.random()) * 23 + 4)) * box
         }
-        gameStatusChange();
     }, time_lapse)
 }
 
@@ -506,7 +508,6 @@ if(!isClassic)
 var pathCounter = 0;
 
 var del;
-
 
 function drawingImg() {
 
@@ -591,9 +592,9 @@ function drawingImg() {
 
 
     if (snake[0].x == food.x && snake[0].y == food.y) {
+        eaten.play();
         score++;
         food = foodGenerator();
-        eaten.play();
     }
     else {
         snake.pop();
@@ -617,11 +618,11 @@ function drawingImg() {
         
         if (isCampaign) {
             if (score >= levelModern * 10) {
-                reset(500);
+                reset(100);
             }
             else {
                 gameover.play();
-                reset(3000);
+                reset(500);
                 levelModern = 1;
                 maze = new Array();
                 setMazePath();
@@ -631,7 +632,7 @@ function drawingImg() {
         }
         else {
             gameover.play();
-            reset(3000);
+            reset(500);
         }
     }
     else
@@ -643,7 +644,7 @@ function drawingImg() {
             levelModern++;
             maze = new Array();
             setMazePath();
-            reset(2000);
+            reset(500);
         }
     }
 
@@ -665,7 +666,25 @@ function drawingImg() {
 
     ctx.fillStyle = "white";
     ctx.font = 1.8*box + "px " + "Arial";
-    ctx.fillText("Score :" + score, 2 * box, 2.5* box);
+    ctx.fillText("Score :" + score, 2 * box, 2.5 * box);
+    ctx.font = box + "px " + "Arial";
+    if (isCampaign) {
+        ctx.fillText("Speed Level:" + ((190 - timeSpeed) / 30), 10 * box, 2 * box);
+        ctx.fillRect(16 * box, 2.5 * box, 10 * box, 1 * box);
+        if (score < levelModern * 10)
+            ctx.fillText("SafePoint :" + levelModern * 10, 20 * box, 1.5 * box);
+        else
+            ctx.fillText("SafePoint :" + levelModern * 10 + '(Reached)', 16 * box, 1.5 * box);
+        
+            if (score < levelModern * 10)
+                ctx.fillStyle = "#eeaaaa";
+            else
+                ctx.fillStyle = "#bbeecc";
+        
+        ctx.fillRect(16 * box, 2.5 * box, 10 * box * score / (levelModern * 20), 1 * box);
+    }
+    else
+        ctx.fillText("Speed Level:" + ((190 - timeSpeed) / 30), 20* box, 2 * box);
 }
 
 

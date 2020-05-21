@@ -94,6 +94,7 @@ body{
     }
 
     #canvasHolder{
+        position: relative;
         width: 100%;
     }
 
@@ -194,6 +195,7 @@ body{
     }
 
     #canvasHolder{
+        position: relative;
         width: 100%;
     }
 
@@ -305,6 +307,7 @@ body{
     }
 
     #canvasHolder{
+        position: relative;
         width: 100%;
     }
 
@@ -422,6 +425,7 @@ body{
 
     #canvasHolder{
         display: block;
+        position: relative;
         width: 50%;
         max-width: 564px;
         float: left;
@@ -502,4 +506,126 @@ body{
         line-height: 2.5rem;
         cursor: pointer;
     }   
+}
+
+.loading-overlay{
+    position: fixed;
+    z-index: 3;
+    background: linear-gradient(to right bottom, rgba(119, 160, 119, 0.507), rgba(255, 255, 0, 0.52)), url(../img/grass.png);
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    display: block;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    animation: 2.6s toinv linear 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.loading{
+    margin-top: 40vh;
+    font-size: 2.5rem;
+}
+
+.statusbar{
+    display: inline-block;
+    height: 30px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #fff;
+    margin-top: 100px;
+}
+
+.percentage{
+    background-color: rgb(22, 104, 93);
+    width: 0px;
+    height: 100%;
+    animation: 2s load linear 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes load{
+    from{
+        width: 0%;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+@keyframes toinv{
+    0%{
+        opacity: 1;
+    }
+    90%{
+        opacity : 1;
+        z-index : 3;
+    }
+    100%{
+        opacity : 0;
+        z-index: -1;
+    }
+}
+
+#pause_overlay{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.514);
+    z-index: 2;
+}
+.fa-play{
+    font-size: 100px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transform-origin: center;
+
+}
+.fa-play:hover{
+    transform: scale(1.05);
+}
+
+.play{
+    display: flex;
+    font-size: 50px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#mazeSelector{
+    background: linear-gradient(to right bottom, rgba(119, 160, 119, 0.507), rgba(255, 255, 0, 0.52)), url(../img/grass.png);
+    display: flex;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.maze{
+    height: 60px;
+    width: 300px;
+    margin: 20px ;
+    line-height: 60px;
+    font-size: 25px;
+    text-align: center;
+    background-color: rgb(22, 104, 93);
+    border-radius: 10px;
+    color: beige;
+    cursor: pointer;
+}
+.maze:hover{
+    transform: scale(1.05);
 }

@@ -9,25 +9,27 @@
 
     <link rel="stylesheet" type="text/CSS" href="stylesheets/game.css">
     <script src="https://kit.fontawesome.com/843e13ba28.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/CSS" href="stylesheets/game.css">
 
     <title>Campaign Mode</title>
 
 </head>
 
-<body>
-    <div class="loading-overlay">
-
+<body><div class="loading-overlay">
+    <div class="loading">Loading...</div>
+    <div class="statusbar">
+        <div class="percentage"></div>
     </div>
+</div>
     <div class="header block tacenter fs3">
         Campaign Mode<br />
         <span class="spread fs15">
             Snake Game
         </span>
     </div><div class="max-width mar-cent block" id="content">
-        <div id="canvasHolder" class="block">
-            <div id="start_overlay">
-    
-            </div>
+        <div id="canvasHolder" class="block"><div id="pause_overlay">
+            <div class="play"><i onclick="gameStatusChange();" class="fas fa-play"></i></div>
+        </div>
             <canvas id="gamecanvas">
     
             </canvas>
@@ -56,6 +58,7 @@
     <script>
         var isClassic = false;
         var isCampaign = true;
+        var levelModern;
     </script>
     <script src="scripts/game.js">
     </script>

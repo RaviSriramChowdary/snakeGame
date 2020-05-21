@@ -53,7 +53,7 @@ snake[0] = {
 
 let maze = new Array();
 var food = foodGenerator();
-var timeSpeed = 100;
+var timeSpeed = 70;
 var game = setInterval(drawingImg, timeSpeed);
 
 cvs.width = 560;
@@ -501,6 +501,7 @@ function drawingImg() {
 
 
     if (snake[0].x == food.x && snake[0].y == food.y) {
+        eaten.play();
         score++;
         food = foodGenerator();
     }

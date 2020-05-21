@@ -7,7 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/CSS" href="stylesheets/style.css">
     <script src="https://kit.fontawesome.com/843e13ba28.js" crossorigin="anonymous"></script>
-    <style>
+    <link rel="stylesheet" type="text/CSS" href="stylesheets/game.css">
+    <style>           
+    
+        @media screen and (max-width : 1060px) and (min-width : 800px){
+            html{
+                font-size: 12px;
+                line-height: 18px;
+            }}
+            @media screen and (max-width : 800px) and (min-width : 600px){
+            html{
+                font-size: 12px;
+                line-height: 14px;
+            }}
+            @media screen and (max-width : 600px){
+            html{
+                font-size: 11px;
+                line-height: 12px;
+            }}
+            @media screen and (min-width : 1060px){
+            html{
+                font-size: 15px;
+                line-height: 20px;
+            }
+            }
         body {
             overflow-x: hidden;
             overflow-y: scroll;
@@ -16,7 +39,7 @@
 
         #header {
             display: block;
-            font-size: 4rem;
+            font-size: 3.5rem;
             color: rgb(11, 46, 87);
             text-align: center;
             line-height: 5rem;
@@ -41,8 +64,12 @@
             margin: 10px;
             padding: 10;
             list-style-position: inside;
-            list-style-type: none;
+            list-style-type: disc;
             text-align: justify;
+        }
+
+        ul.sec{
+            padding-left: 20px;
         }
 
         dt {
@@ -68,59 +95,29 @@
         <a style="display: block ; float: left; margin-left: 30px; margin-top: 10px;" href="index.html"><i
                 class="far fa-arrow-alt-circle-left"></i></a>
 
-        How to Play?<br>
-        <span class="spread">Rule Sets</span>
+        New Features<br>
 
     </div>
     <ul class="rules">
-        <li>The Snake is hungry and you have to feed it.The ultimate aim is to Collect the food which inturns grow the
-            sanke and increase the score.</li>
-        <li>You can move the snake using the
-            <ul>
-                <li>KeyBoard Controls</li>
-                <li>Onscreen Joypad Controls</li>
-                <li>Swipe Controls</li>
-            </ul>
-        </li>
-        <hr>
-        <li>It has Three Modes :
-            <dl>
-                <dt>Classic</dt>
-                <dd>
-                    In this mode there will be no maze or outside constraints.
-                    For example, if you go right you will come from left.<br />
-                    <span class="gameover">Game over Rules:</span><br />
-                    There is only one condition that leads to the end of the game: <br />The sanke collides itself.
-                </dd>
-                <hr>
-                <dt>Modern</dt>
-                <dd>
-                    This has five levels namely: Box, Tunnel, Garden, Apartment. Each of it has its own preset
-                    Maze.<br />
-                    <span class="gameover">Game over Rules:</span><br />
-                    <ol>
-                        <li>The snake collides itself.</li>
-                        <li>The sanke collides the maze.</li>
-                    </ol>
-                </dd>
-                <hr>
-                <dt>Campaign</dt>
-                <dd>
-                    This is the mode which connects all the Modern modes.There will be a target for each level in the
-                    Campaign mode. If you reach the target you will be upgraded to the next
-                    level.<br />
-                    <span class="gameover">Game over Rules:</span><br />
-                    <ol>
-                        <li>The snake collides itself.</li>
-                        <li>The sanke collides the maze.</li>
-                    </ol>
-                <dt>Safepoint</dt>
-                <dd>There will be a safepoint score for each level in the Campaign mode. If you reach that and you
-                    encounter a collision you will not be sent to the first level.
-                    Or else the game will begin from the first level.</dd>
-                </dd>
-            </dl>
-        </li>
+        
+            <li>Fixed merging of food into maze or snake.</li>
+            <li>Pause/Resume of the game using the Space Bar or button</li>
+            <li>Real Time Speed Selector.</li>
+            <li>Button to monitor the speed of the snake</li>
+            <li>Swipe Compactibility</li>
+            <li>Three modes :<br />
+                <ul class="sec">
+                    <li>Classic</li>
+                    <li>Modern</li>
+                    <li>Campaign</li>
+                </ul>
+            <li>Different Mazes</li>
+            <li>Autonomous Completion</li>
+            <li>Progress Bar for the Campaign</li>
+            <li>Fixed Bugs and Crashes</li>
+            <li>Improved Graphics</li>
+            <li>Improvised Sounds</li>
+        
     </ul>
 </body>
 
