@@ -163,6 +163,8 @@ function isFoodLegal(snake, maze, food) {
                 return (false);
             }
         }
+        if(food.x == 2*box || food.x == 25*box || food.y == 4*box || food.y == 26*box)
+            return (false);
     }
     return true;
 }
@@ -552,6 +554,7 @@ function drawingImg() {
     if (snake[0].x == food.x && snake[0].y == food.y) {
         score++;
         food = foodGenerator();
+        move.play();
     }
     else {
         snake.pop();
