@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" type="text/CSS" href="stylesheets/game.css">
     <script src="https://kit.fontawesome.com/843e13ba28.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/CSS" href="stylesheets/game.css">
+    <link rel="icon" href="img/head.png" type="img/icon">
 
     <title>Modern Mode</title>
 
@@ -21,13 +21,20 @@
         <div class="percentage"></div>
     </div>
 </div><div id="mazeSelector">
+    <div class="maze2"><a style=" float: left;" href="index.html">
+        <i class="hoverbulge far fa-arrow-alt-circle-left">
+        </i>
+    </a></div>
     <div class="maze" onclick="levelModern=1; setMazePath(); document.getElementById('mazeSelector').style.display = 'none';">Box</div>
     <div class="maze" onclick="levelModern=2; setMazePath(); document.getElementById('mazeSelector').style.display = 'none';">Tunnel</div>
     <div class="maze" onclick="levelModern=3; setMazePath(); document.getElementById('mazeSelector').style.display = 'none';">Garden</div>
     <div class="maze" onclick="levelModern=4; setMazePath(); document.getElementById('mazeSelector').style.display = 'none';">Apartment</div>
 </div>
     <div class="header block tacenter fs3">
-        Modern Mode<br />
+        <a style=" margin-left: 30px; float: left;" href="#" onclick="reset(10); document.getElementById('mazeSelector').style.display = 'flex';">
+            <i class="hoverbulge far fa-arrow-alt-circle-left">
+            </i>
+        </a>Modern Mode<br />
         <span class="spread fs15">
             Snake Game
         </span>

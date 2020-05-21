@@ -1,3 +1,4 @@
+
 function revealmode() {
     optotr('menu');
     setTimeout(trtoop('mode'),1000);
@@ -456,6 +457,9 @@ function drawingImg() {
                     }
                 }
             }
+        }
+        else {
+            location.reload();
         }
 
     }
