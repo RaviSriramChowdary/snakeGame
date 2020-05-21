@@ -554,7 +554,7 @@ function drawingImg() {
     if (snake[0].x == food.x && snake[0].y == food.y) {
         score++;
         food = foodGenerator();
-        move.play();
+        eaten.play();
     }
     else {
         snake.pop();
