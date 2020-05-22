@@ -528,7 +528,7 @@ function drawingImg() {
 
     if (autonomousState == 1) {
         searchthepath(1, snake[0], food, snake);
-        if (typeof path != undefined) {
+        if (path != undefined) {
             if (path.length > 0) {
 
                 for (var i = 0; i < path.length; i++) {
