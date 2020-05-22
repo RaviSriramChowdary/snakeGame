@@ -951,13 +951,13 @@ function searchthepath(cost, origin, goal, snake) {
                 continue;
 
             child.g = current_node.g + cost;
-            if(Math.Abs(child.self.x - end_node.self.x) <= 12*box && Math.Abs(child.self.y - end_node.self.y) <= 12*box)
+            if(Math.abs(child.self.x - end_node.self.x) <= 12*box && Math.abs(child.self.y - end_node.self.y) <= 12*box)
                 child.h = (Math.abs(child.self.x - end_node.self.x) + Math.abs(child.self.y - end_node.self.y)) / box;
-            else if(Math.Abs(child.self.x - end_node.self.x) <= 12*box && Math.Abs(child.self.y - end_node.self.y) > 12*box)
+            else if(Math.abs(child.self.x - end_node.self.x) <= 12*box && Math.abs(child.self.y - end_node.self.y) > 12*box)
                 child.h = (Math.abs(child.self.x - end_node.self.x) + 23*box - Math.abs(child.self.y - end_node.self.y)) / box;
-            else if(Math.Abs(child.self.x - end_node.self.x) > 12*box && Math.Abs(child.self.y - end_node.self.y) <= 12*box)
+            else if(Math.abs(child.self.x - end_node.self.x) > 12*box && Math.abs(child.self.y - end_node.self.y) <= 12*box)
                 child.h = (24*box - Math.abs(child.self.x - end_node.self.x) + 23*box - Math.abs(child.self.y - end_node.self.y)) / box;
-            else if(Math.Abs(child.self.x - end_node.self.x) > 12*box && Math.Abs(child.self.y - end_node.self.y) > 12*box)
+            else if(Math.abs(child.self.x - end_node.self.x) > 12*box && Math.abs(child.self.y - end_node.self.y) > 12*box)
                 child.h = (24*box - Math.abs(child.self.x - end_node.self.x) + 23*box - Math.abs(child.self.y - end_node.self.y)) / box;
             child.f = child.g + child.h;
 
