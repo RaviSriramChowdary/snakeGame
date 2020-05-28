@@ -1,6 +1,8 @@
 # Snake Game
 This is a snake Game made using the Java Script as an Assignment for the Kshitij Web Dev Wkshp.
 
+The game can be played [here](https://ravisriramchowdary.github.io/snakeGame).
+
 ### It has Three Modes :
 * Classic
 * Modern
